@@ -12,15 +12,15 @@
 
                         <div class="form-group">
                             <label for="inputEmail">Email address</label>
-                            <input type="email" v-model="user.email" :class="errors.email!=null ? 'is-invalid' : ''" id="inputEmail" class="form-control" placeholder="Email address"  autofocus>
-                            <div class="invalid-feedback" v-if="errors.email!=null">{{errors.email}}</div>
+                            <input type="email" v-model="user.email" :class="errors.email ? 'is-invalid' : ''" id="inputEmail" class="form-control" placeholder="Email address"  autofocus>
+                            <div class="invalid-feedback" v-if="errors.email">{{errors.email[0]}}</div>
 
                         </div>
 
                         <div class="form-group">
                             <label for="inputPassword">Password</label>
-                            <input type="password" v-model="user.password" id="inputPassword" :class="errors.password!=null ? 'is-invalid' : ''"  class="form-control" placeholder="Password" >
-                            <div class="invalid-feedback" v-if="errors.password!=null">{{errors.password}}</div>
+                            <input type="password" v-model="user.password" id="inputPassword" :class="errors.password ? 'is-invalid' : ''"  class="form-control" placeholder="Password" >
+                            <div class="invalid-feedback" v-if="errors.password">{{errors.password[0]}}</div>
                         </div>
 
                         <div class="checkbox mb-3">
@@ -28,7 +28,7 @@
                             <input type="checkbox" value="remember-me"> Remember me
                             </label>
                         </div>
-                        <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+                        <button class="btn btn-teal btn-block" type="submit">Sign in</button>
                         </form>
                 </div>
             </div>
@@ -55,7 +55,6 @@ export default {
       this.$store
         .dispatch("login", this.user)
         .then(response => {
-          console.log("success", response);
           window.axios.defaults.headers.common['Authorization'] = "Bearer "+localStorage.getItem('user-token');
           /* Unset all errors when u get response success */
           this.errors = {
@@ -67,10 +66,7 @@ export default {
           this.$router.push({ path: "/" });
         })
         .catch(error => {
-          // console.log('login failded',error.response.data.errors);
-          this.errors.email = error.response.data.errors.email[0];
-          this.errors.message = error.response.data.message;
-          this.errors.password = error.response.data.errors.password[0];
+            this.errors = error.response.data.errors
         });
     }
   }

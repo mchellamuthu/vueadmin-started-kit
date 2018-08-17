@@ -3,12 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 Vue.config.productionTip = false
+/* Lodash */
 window._ = require('lodash');
+/* Popper Js */
 window.Popper = require('popper.js').default;
 try {
+  /* Jquery */
   window.$ = window.jQuery = require('jquery');
+  /* Bootstrap */
   require('bootstrap');
 } catch (e) {}
+/* Axios */
 window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let token = localStorage.getItem('user-token');
@@ -16,7 +21,7 @@ if (token) {
   window.axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 }
 window.store = store;
-window.axios.defaults.baseURL = "http://onedollarcampaign.test";
+window.axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL;
 
 import Toasted from 'vue-toasted'
 Vue.use(Toasted);
@@ -37,6 +42,7 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else {
+    
     next() // make sure to always call next()!
   }
 })

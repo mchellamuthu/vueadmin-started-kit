@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Login from './views/auth/Login.vue'
 import Logout from './views/auth/Logout.vue'
+import PlansTableView from './views/plans/TableView.vue'
 
 Vue.use(Router)
 
@@ -14,7 +15,7 @@ const router =  new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -34,6 +35,14 @@ const router =  new Router({
       path: '/logout',
       name: 'logout',
       component: Logout,
+       meta: {
+         requiresAuth: true
+       }
+    },
+    {
+      path: '/plans/table',
+      name: 'plansTableview',
+      component: PlansTableView,
        meta: {
          requiresAuth: true
        }

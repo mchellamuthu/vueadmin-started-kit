@@ -30,7 +30,7 @@ export default new Vuex.Store({
           email: user.email,
           password: user.password
         }
-        axios.post('/api/login', data).then((response) => {
+        axios.post('/admin/login', data).then((response) => {
           let data = {
             userinfo: response.data.userinfo,
             token: response.data.token
