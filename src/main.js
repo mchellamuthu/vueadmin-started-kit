@@ -22,6 +22,7 @@ if (token) {
 }
 window.store = store;
 window.axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL;
+// window.axios.defaults.baseURL = 'https://systimanx.xyz/lottery/public/';
 
 import Toasted from 'vue-toasted'
 Vue.use(Toasted);
@@ -42,7 +43,7 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else {
-    
+
     next() // make sure to always call next()!
   }
 })

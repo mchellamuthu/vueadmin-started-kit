@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Dashboard from './views/general/Dashboard.vue'
+import Settings from './views/general/Settings.vue'
+import Plans from './views/plans/List.vue'
 import About from './views/About.vue'
 import Login from './views/auth/Login.vue'
 import Logout from './views/auth/Logout.vue'
@@ -12,16 +15,24 @@ const router =  new Router({
   mode: "history",
   routes: [{
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'dashboard',
+      component: Dashboard,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
+      path: '/plans',
+      name: 'plans',
+      component: Plans,
+      meta :{
+        requiresAuth : true
+      }
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings,
       meta :{
         requiresAuth : true
       }

@@ -4,7 +4,7 @@ export default {
         tableWrapper: '',
         tableHeaderClass: 'mb-0',
         tableBodyClass: 'mb-0',
-        tableClass: 'table table-bordered table-striped',
+        tableClass: 'table  table-striped',
         loadingClass: 'loading',
         ascendingIcon: 'fa fa-chevron-up',
         descendingIcon: 'fa fa-chevron-down',

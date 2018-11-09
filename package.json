@@ -19,6 +19,7 @@
     "vue-router": "^3.0.1",
     "vue-toasted": "^1.1.24",
     "vuejs-datepicker": "^1.5.2",
+    "vuejs-datetimepicker": "^1.1.9",
     "vuetable-2": "^1.7.5",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4"
