@@ -63,10 +63,13 @@ export default {
     return h(
       "div",
       {
-        class: { ui: true, container: true }
+        class: { ui: true, containerFluid: true }
       },
       [h("filter-bar"), this.renderVuetable(h), this.renderPagination(h)]
     );
+  },
+   created() {
+    this.$parent.$on('reloadTable', this.reloadTable)
   },
   methods: {
     // render related functions
@@ -140,6 +143,9 @@ export default {
     onFilterReset() {
       delete this.appendParams.filter;
       Vue.nextTick(() => this.$refs.vuetable.refresh());
+    },
+    reloadTable() {
+      this.$refs.vuetable.refresh();
     }
   }
 };

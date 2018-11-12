@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+        <vue-snotify></vue-snotify>
+
       <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
           <router-link class="navbar-brand" to="/">Admin</router-link>
@@ -8,6 +10,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <router-link to="/roll-gift" class="nav-link"> <i class="fas fa-gift"></i>  Roll Gift</router-link>
+            </li>
             <li class="nav-item">
               <router-link to="/plans" class="nav-link"> <i class="fas fa-database"></i>  Plans</router-link>
             </li>
@@ -34,7 +39,7 @@
         </div>
          </div>
       </nav>
-      <div class="container">
+      <div class="container-fluid">
           <router-view/>
       </div>
   </div>

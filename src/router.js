@@ -4,6 +4,10 @@ import Home from './views/Home.vue'
 import Dashboard from './views/general/Dashboard.vue'
 import Settings from './views/general/Settings.vue'
 import Plans from './views/plans/List.vue'
+import Products from './views/products/List.vue'
+import Banners from './views/banners/List.vue'
+import RollGift from './views/winners/Rollgift.vue'
+import PlanDetails from './views/plans/Info.vue'
 import About from './views/About.vue'
 import Login from './views/auth/Login.vue'
 import Logout from './views/auth/Logout.vue'
@@ -25,6 +29,39 @@ const router =  new Router({
       path: '/plans',
       name: 'plans',
       component: Plans,
+      meta :{
+        requiresAuth : true
+      }
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: Products,
+      meta :{
+        requiresAuth : true
+      }
+    },
+    {
+      path: '/banners',
+      name: 'banners',
+      component: Banners,
+      meta :{
+        requiresAuth : true
+      }
+    },
+    {
+      path: '/roll-gift',
+      name: 'RollGift',
+      component: RollGift,
+      meta :{
+        requiresAuth : true
+      }
+    },
+    {
+      path: '/plan/:id',
+      name: 'Plan Details',
+      component: PlanDetails,
+      props:true,
       meta :{
         requiresAuth : true
       }
